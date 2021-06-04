@@ -18,6 +18,8 @@ def container_with_most_water(heights):
 
     return area
 
+#Testing#
+
 print(container_with_most_water([1,8,6,2,5,4,8,3,7])) #Should be 49
 print(container_with_most_water([4,3,2,1,4])) #Should be 16
     

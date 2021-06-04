@@ -18,7 +18,7 @@ def max_sub_array(nums):
 	#returns the final max
 	return output
 
-## TESTING ##
+#Testing#
 
 a = [-2,1,-3,4,-1,2,1,-5,4]
 b = [1]
@@ -36,4 +36,5 @@ print(max_sub_array(c))
 # This is done to find the largest sum of all of the possible contiguos subarrays. 
 # From here, the output is changed to be the output between the current max and the original max
 # After this completes, the remaining value held in the variable "output" is the largest sum in the array
+
 
