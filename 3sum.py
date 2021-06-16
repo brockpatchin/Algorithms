@@ -15,10 +15,10 @@ def three_sum(nums):
             continue
         #sets target value to the negative value of the current element
         target = nums[i]*-1
-        #initializes 2 variables (s and e) to the values of index++ and length - 1 respectively
+        #initializes 2 variables (s and e) to the values of currentindex++ and last index respectively
         s,e = i+1, N-1
         #from here, we iterate through as long as s is less than e
-        while s<e:
+        while s < e:
             # we check to see if we have hit our target or not
             if nums[s]+nums[e] == target:
                 #if we have, we put this subsequence of 3 into the array
