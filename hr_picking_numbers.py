@@ -33,6 +33,7 @@ def pickingNumbers(a):
 				else:
 					x = False
 
+
 		#the ending value of tempMax is checked to see if it is a newMax and if it is, the output is changed to that value
 		if tempMax > output:
 			output = tempMax

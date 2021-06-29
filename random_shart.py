@@ -1,31 +1,16 @@
-def merge(nums1, m, nums2, n):       
-    if nums2 == []:
-        return nums1
-    elif nums1 == []:
-        return nums2
+numbers = []
+primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199]
+for i in range(2, 201):
+    numbers.append(i)
+counter = 2
+while numbers != primes:
+    for i in numbers:
+        if i % counter == 0:
+            numbers.pop(numbers.index(i))
 
-    #edge case
-    elif m == 1 and n == 1:
-        nums1[1] = max(nums1[0], nums2[0])
-        nums1[0] = min(nums1[0], nums2[0])
-        return nums1
+    counter += 1
 
-    ptr = 0
-    catcher = 0
-    for i in range(m + n):
-        if (nums1[i] >= nums2[ptr] and catcher == 0) or nums1[i] == 0:
-            nums1.insert(i, nums2[ptr])
-            nums1.pop()
-            if ptr + 1 == n:
-            	catcher = 1
-            if ptr + 1 != n:
-                ptr += 1
+print(counter)
 
-    return nums1
 
-print(merge([4, 5, 6, 0, 0, 0], 3, [1, 2, 3], 3))
-
-print(merge([2, 0], 1, [1], 1))
-
-print(merge([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3))
-
+ 

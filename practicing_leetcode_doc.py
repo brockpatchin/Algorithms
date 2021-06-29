@@ -1,26 +1,25 @@
-def pickingNumbers(a):
-	a.sort()
-	output = 0
+max_int = 2 ** 32 - 1
+def climbingLeaderboard(ranked, player):
+	player.sort(reverse = True)
+	temp = 0
+	phArray = [max_int]
+	placingsForPlayer = []
 
-	for i in range(len(a) - 1):
-		start = i
-		tempMax = 0
-		if abs(a[start] - a[start + 1]) <= 1:
-			minHold = min(a[start], a[start + 1])
-			maxHold = max(a[start], a[start + 1])
-			tempMax += 2
-			x = True
-			while x == True and start != len(a) - 2:
-				start += 1
-				if abs(a[start + 1] - minHold) <= 1 and abs(a[start + 1] - maxHold) <= 1:
-					tempMax += 1 
-				else:
-					x = False
+	while len(ranked) != 0 and len(player) != 0:
+		if ranked[0] >= player[0]:
+			if phArray[temp] > ranked[0]:
+				temp += 1
+			phArray.append(ranked[0])
+			ranked.pop(0)
+		elif player[0] >= ranked[0]:
+			if phArray[temp] > player[0]:
+				temp += 1
+			phArray.append(player[0])
+			player.pop(0)
+			placingsForPlayer.insert(0, temp)
 
-		if tempMax > output:
-			output = tempMax
+	print(phArray)
+	for i in placingsForPlayer:
+		print(i)
 
-	return output
-
-
-print(pickingNumbers([4, 6, 5, 3, 3, 1]))
+climbingLeaderboard([100, 90, 90, 80, 75, 60], [50, 65, 77, 90, 102])
