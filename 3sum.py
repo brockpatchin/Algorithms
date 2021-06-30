@@ -31,11 +31,11 @@ def threeSum(nums):
                     # continues to move forward through all duplicates
                     l = l+1
             # if our sum is less than target (move left closer increasing sum since list is sorted)
-            elif nums[l] + nums[r] < target:
-                l = l+1
+            elif nums[l] + nums[r] > target:
+                r -= 1
             # else, move right closer to the middle (moving right to the left decreases sum)
             else:
-                r = r-1
+                l += 1
     # returns result
     return result 
 
