@@ -1,23 +1,22 @@
-def maxProfit(prices):
-	output = 0
-	cMax = 0
-	length = len(prices)
-		
-		
-	for i in range(1, length):
-		cMax = max(0, cMax + prices[i] - prices[i - 1])
-		output = max(cMax, output)
+def productExceptSelf(nums):
+	before = [1]*len(nums)
+	after = [1]*len(nums)
+	product = [0]*len(nums)
 
-		print('###########')
-		print(i)
-		print(cMax)
-		print(output)
-		print('###########')
+	for i in range(1, len(nums)):
+		before[i] = before[i-1]*nums[i-1]
 
-				
-	return output
-			
+	for i in range(len(nums)-2, -1, -1):
+		after[i] = after[i+1]*nums[i+1]
+
+	for i in range(0, len(nums)):
+		product[i] = before[i]*after[i]
+
+	print(product)
+	print(before)
+	print(after)
 
 # Testing #
 
-print(maxProfit([7,1,5,3,6,4])) # should be 5
+productExceptSelf([1,2,3,4])
+	
