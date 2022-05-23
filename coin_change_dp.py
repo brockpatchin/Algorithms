@@ -26,11 +26,15 @@ def coinChange(coins, amount):
                     # if the value after we take out one of the coins is equivalent to -1 (this means we can't make this value) then don't change temp value
 					if values[i-z] == -1:
 						temp = temp
+                    # else, apply recursive logic (Opt(n) = Opt(n - denom value) + 1)
 					else:
 						temp = min(temp, values[i - z] + 1)
+        # Adds value of -1 if we can not make that value (one of the criterion for questions)
 		if temp == 1000000:
 			temp = -1
+        # adds value to end of list (filling values with all of our previous values which follows the bottom up approach)
 		values.append(temp)
+    # returns the final value (this will be the top value since we are moving bottom up)
 	return values[-1]
 
 # Test Cases #
