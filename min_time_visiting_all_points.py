@@ -3,6 +3,10 @@
 # time is given as (1 for 1 horizontal, 1 for 1 vertical, and 1 for sqrt 2 diagonal (1 vertical and 1 horizontal at the same time))
 # The given conditions make the question as simple as finding the larger of the x-distance and y-distance
 
+# Complexity
+# Time is O(n)
+# Space is O(1)
+
 def minTimeToVisitAllPoints(points):
     total = 0
     for i in range(len(points) - 1):    
